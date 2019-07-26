@@ -697,7 +697,54 @@ id="cai-webchat"
     </script>
 
 <script>
-      
+        ["s3-img", "s3-kpi", "s3-kpi-box", "s4-spec", "s5-uname", "s5-text", "s6-price", "s8-url", "s9-url", "s10-text-p", "s10-text-n", "s11-title", "s11-text", "s11-author"]
+        var arr = [{
+            "s3-img": [
+                "https://9to5google.com/wp-content/uploads/sites/4/2019/02/galaxy_s10e_leak_1.jpg?quality=82&strip=all&w=600",
+                "https://cdn77.swedroid.se/wp-content/uploads/2019/02/samsung_galaxy_s10_plus_box_contents_2-600x400.jpg",
+                "https://i.ebayimg.com/images/g/ZY0AAOSwx9xc5PP3/s-l800.jpg"
+            ],
+            "s3-kpi":["21 MP", '6.4"', "12 GB", "3100 MAH", "1TB"],
+            "s3-kpi-box":["61% Positive", "Value for money", "Amazing", "Better than resr", "All Day", "good"],
+            "s4-spec": ["##GSM / CDMA / HSPA / EVDO / LTE", "175 g / 198 g (ceramic) (6.17 oz)", "1440 x 3040 pixels, 19:9 ratio (~522 ppi density)", "Octa-core (2x2.73 GHz Mongoose M4 & 2x2.31 GHz Cortex-A75 & 4x1.95 GHz Cortex-A55) - EMEA/LATAM"],
+            "s5-uname":["@unam1", "@unam2", "unam23"],
+            "s5-text":["onec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus",
+        "id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.",
+    "mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus."],
+        "s6-price":["34,000 INR", "43,000 INR", "43,000 INR", "43,000 INR"],
+        "s7-price":["74,900 INR", "56,000 INR"],
+        "s8-url": [],
+
+        }]
+
+    for(var index in arr){
+	var index = index;
+	var data = arr[index];
+	var posttext = index.split("-")[1];
+	if(posttext == "img" || posttext == "url"){
+		pushImage(index, data);
+	}else{
+		pushText(index, data);
+	}
+	
+}
+function pushImage(index, data){
+	var i = 0;
+	$("."+index).each(function(){
+		console.log($(this).attr("src"));
+		$(this).attr("src", data[i]);
+		i++;
+	});
+}
+
+function pushText(index, data){
+	var i = 0;
+	$("."+index).each(function(){
+		console.log($(this).attr("src"));
+		$(this).html(data[i]);
+		i++;
+	});
+}
         </script>
 </body>
 
